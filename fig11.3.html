@@ -18,10 +18,8 @@
 	
 		<h1 class='text-center'>Figure 11.3</h1>
 		<hr />
-			
+	<div ng-init='figure("fig3")'></div>
 	<!-- main container for the index -->
-	<div>
-	</div>
 	<div class='container'>
 		<div class='row'>
 		
@@ -36,7 +34,7 @@
 								
 									<!-- table that shows the code -->
 									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px'>
-										<table id='program'>
+										<table id='fig3'>
 											<tr>
 												<td></td>
 												<td>*</td>
@@ -114,7 +112,7 @@
 								</div>
 								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
 									<div id='table' style='width: 90px'>
-										<table id='figure11.3var' class='table table-bordered' ng-repeat='var in variables'>
+										<table id='varfig3' class='table table-bordered' ng-repeat='var in variables'>
 											<td>{{var.title}}</td>
 											
 										</table>
@@ -180,9 +178,9 @@
 									<table class='table table-bordered' ng-repeat='mem in memory'>
 										<tbody>
 											<tr>
-												<td style="height: 19px; ">{{mem.memno}}</td>
-												<td style="height: 19px; ">{{mem.content}}</td>
-												<td style="height: 19px; ">{{mem.code}}</td>
+												<td>{{mem.memno}}</td>
+												<td>{{mem.content}}</td>
+												<td>{{mem.code}}</td>
 											</tr>
 										</tbody>
 									</table>

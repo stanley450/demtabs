@@ -1077,13 +1077,86 @@
 			$scope.error = function() {document.write('<h1>you broke it.</h1>');};
 			
 
-			var tableName = "program";
-			var varTable = "variables";
-			var bool = true;
+			var tableName = "";
+			var varTable = "";
+			var bool = false;
+			var figure = "";
 			
-			$scope.tableName = tableName;
-			$scope.varTable = varTable;
-			$scope.bool = bool;
+			$scope.figure113 = false;
+			$scope.figure114 = false;
+			$scope.figure115 = false;
+			$scope.figure116 = false;
+			$scope.figure119 = false;
+			$scope.figure1110 = false;
+			$scope.figure1111 = false;
+			
+			$scope.figure = function(name){
+				switch(name){
+				case 'fig3':
+					$scope.figure113 = true;
+					break;
+				case 'fig4':
+					$scope.figure114 = true;
+					break;
+				case 'fig5':
+					$scope.figure115 = true;
+					break;
+				case 'fig6':
+					$scope.figure116 = true;
+					break;
+				case 'fig9':
+					$scope.figure119 = true;
+					break;
+				case 'fig10':
+					$scope.figure1110 = true;
+					break;
+				case 'fig11':
+					$scope.figure1111 = true;
+					break;
+				default:
+					$scope.defacto();
+					break;
+				}
+			};
+			$scope.defacto = function(){
+				tableName = "editor";
+				varTable = "variables";
+				bool = false;
+			};
+			
+			
+			if($scope.figure113 == true){
+				tableName = "fig3";
+				varTable = "varfig4";
+				bool = true;};
+			if($scope.figure114 == true){
+				tableName = "fig4";
+				varTable = "varfig4";
+				bool = true;};
+			if($scope.figure115 == true){
+				tableName = "fig5";
+				varTable = "varfig5";
+				bool = true;};
+			if($scope.figure116 == true){
+				tableName = "fig6";
+				varTable = "varfig6";
+				bool = true;};
+			if($scope.figure119 == true){
+				tableName = "fig9";
+				varTable = "varfig9";
+				bool = true;};
+			if($scope.figure1110 == true){
+				tableName = "fig10";
+				varTable = "varfig10";
+				bool = true;};
+			if($scope.figure1111 == true){
+				tableName = "fig11";
+				varTable = "varfig11";
+				bool = true;};
+				
+				$scope.figure(name);
+			
+			$scope.assembler = new assembler(tableName, varTable, bool);
 			
 			$scope.architecture = function(){
 				var variables = $scope.assembler.variables;
@@ -1166,7 +1239,6 @@
 								];
 			};
 			
-			$scope.assembler = new assembler(tableName, varTable, bool);
 			$scope.architecture();
 			
 			$scope.pause = function(){
