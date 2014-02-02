@@ -36,7 +36,7 @@
 								
 									<!-- table that shows the code -->
 									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px'>
-										<table id='figure11.3'>
+										<table id='program'>
 											<tr>
 												<td></td>
 												<td>*</td>
@@ -170,7 +170,7 @@
 					</tab>
 					
 					<!-- tab containing the memory, register, program counters, and flags -->
-					<tab heading='CPU'><br>
+					<tab heading='Architecture'><br>
 						<div class='container'>
 							<div class='row'>
 								<div class='col-lg-4 col-md-4'>
@@ -264,9 +264,10 @@
 		</div>
 		<div class ='row'>
 			<div id='editor_button_group' class='col-lg-3 col-md-3 btn-group-horizontal'>
-				<button type='button' class='btn btn-default' ng-click='run()'>Run</button>
-				<button type='button' class='btn btn-default' ng-click='walk()'>Walk</button>
-				<button type='button' class='btn btn-default' ng-click='reset()'>Reset</button>
+				<button type='button' class='btn btn-success' ng-click='run()'>Run</button>
+				<button type='button' class='btn btn-primary' ng-click='walk()'>Walk</button>
+				<button type='button' class='btn btn-danger' ng-click='reset()'>Reset</button>
+				<button type='button' class='btn btn-warning' ng-click='pause()'>Pause</button>
 				<button type='button' class='btn btn-default'>2/16</button>
 			</div>
 		</div>
