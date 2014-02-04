@@ -560,7 +560,7 @@
 						}
 					}
 					// Convert to hex to store in memory
-					var hex = parseInt(arg2,10);
+					var hex = parseInt(arg2,16);
 					// hex length checking goes here.
 					hex = this.decimalToHex(hex, 2);
 				    // Store in memory
@@ -571,7 +571,7 @@
 					var arg1, arg2, label;
 					arg1 = 0;
 					// Find memory location to jump to
-					label = table.rows[progLine].cells[this.arg1].firstChild.nodeValue;
+					label = table.rows[progLine].cells[this.arg1Num].firstChild.nodeValue;
 					for(var i = 0; i < this.labels.length; i++){
 						if(this.labels[i][0] == label) {
 							arg2 = this.labels[i][1];
@@ -837,71 +837,73 @@
 		// Observes flags set by Compare and adjusts program counter accordingly
 		this.branch = function(cond, address){
 			if (cond == "0"){
-				//EQ
-					if(this.zeroFlag == 1){
-						this.jump(address);
-					}
+			//EQ
+				if(this.zeroFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "1"){
-				//NE
-					if(this.zeroFlag == 0){
-						this.jump(address);
-					}
+			}
+			else if (cond == "1"){
+			//NE
+				if(this.zeroFlag == 0){
+					this.jump(address);
 				}
-				if (cond == "2"){
-				//LT
-					if(this.negativeFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "2"){
+			//LT
+				if(this.negativeFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "3"){
-				//LE
-					if(this.zeroFlag == 1 || negativeFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "3"){
+			//LE
+				if(this.zeroFlag == 1 || negativeFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "4"){
-				//GT
-					if(this.zeroFlag == 0 || negativeFlag == 0){
-						this.jump(address);
-					}
+			}
+			else if (cond == "4"){
+			//GT
+				if(this.zeroFlag == 0 || negativeFlag == 0){
+					this.jump(address);
 				}
-				if (cond == "5"){
-				//GE
-					if(this.negativeFlag == 0){
-						this.jump(address);
-					}
+			}
+			else if (cond == "5"){
+			//GE
+				if(this.negativeFlag == 0){
+					this.jump(address);
 				}
-				if (cond == "6"){
-				//CARY
-					if(this.carryFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "6"){
+			//CARY
+				if(this.carryFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "7"){
-				//Neg
-					if(this.negativeFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "7"){
+			//Neg
+				if(this.negativeFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "8"){
-				//Zero
-					if(this.zeroFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "8"){
+			//Zero
+				if(this.zeroFlag == 1){
+					this.jump(address);
 				}
-				if (cond == "9"){
-				//over
-					if(this.overflowFlag == 1){
-						this.jump(address);
-					}
+			}
+			else if (cond == "9"){
+			//over
+				if(this.overflowFlag == 1){
+					this.jump(address);
+				}
+			}else{
+				this.programCounter++;
 				}
 		};
 		
 		// Sets program counter to be equal to the given memory address
 		this.jump = function(addr1, addr2){
 			var num = this.memory[parseInt(addr1 + addr2, 16)];
-			this.programCounter = parseInt(num[0]+num[1], 16);;
+			this.programCounter = parseInt(num[0]+num[1], 10);;
 		};
 		
 		// Sets the stop flag to true.
@@ -1006,7 +1008,7 @@
 				}
 				parser.eval(this.programCounter);
 				for (var i = 0; i < numCells; i++) {										// iterate throughout the cells
-					table.rows[previousCounter-1].cells[i].style.color = '#000000';			// highlight all cells black
+					table.rows[previousCounter].cells[i].style.color = '#000000';			// highlight all cells black
 				}
 			} else {
 				this.stop = false;

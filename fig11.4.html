@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html>
 
 	<head>
 		<style type='text/css'>
@@ -33,80 +33,62 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px'>
-			<table id='fig3'>
+		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+			<table id='program'>
 				<tr>
-					<td></td>
-					<td>*</td>
-					<td>TOTAL</td>
-					<td>.Block</td>
-					<td>1</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td>ABC</td>
-					<td>.Word</td>
-					<td>2</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td>XYZ</td>
-					<td>.Word</td>
-					<td>3</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Load</td>
-					<td>RegD</td>
-					<td>ABC</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Load</td>
-					<td>RegE</td>
-					<td>XYZ</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Add</td>
-					<td>RegF</td>
-					<td>RegD</td>
-					<td>RegE</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Store</td>
-					<td>RegF</td>
-					<td>TOTAL</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Halt</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+									<td></td>
+									<td>*</td>
+									<td>X</td>
+									<td>.Word</td>
+									<td>15</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td></td>
+									<td>Load</td>
+									<td>RegA</td>
+									<td>X</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td></td>
+									<td>LoadImm</td>
+									<td>RegB</td>
+									<td>1</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td></td>
+									<td>Sub</td>
+									<td>Reg0</td>
+									<td>RegA</td>
+									<td>RegB</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td></td>
+									<td>Store</td>
+									<td>Reg0</td>
+									<td>X</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td></td>
+									<td>Halt</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
 			</table>
 		</div>
 		
@@ -116,17 +98,11 @@
 					<!-- demo tab - shows all of the information for the current lab -->
 					<tab heading='Figure'><br>
 						<div class='container'>
-							<div class='row'>
-								<div class='col-lg-4 col-md-4'>
-								
-									<!-- table that shows the code -->
-									
-								</div>
+							<div class='row'>								
 								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
 									<div id='table' style='width: 90px'>
-										<table id='varfig3' class='table table-bordered' ng-repeat='var in variables'>
-											<td>{{var.title}}</td>
-											
+										<table id='variables' class='table table-bordered' ng-repeat='var in variables'>
+											<td>{{var.title}}</td><td>{{var.titletoo}}</td>
 										</table>
 									</div>
 								</div>
@@ -186,14 +162,11 @@
 								<div class='col-lg-4 col-md-4'>
 								
 									<!-- table containing the memory -->
-									<div class='spanMem'>
-									<table class='table table-bordered' ng-repeat='mem in memory'>
-										<tbody>
+									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 300px; width: 200px'>
+									<table class='table table-bordered table-condensed' ng-repeat='mem in memory'>
 											<tr>
-												<td>{{mem.memno}}</td>
-												<td>{{mem.content}}</td>
+											<td>{{mem.memno}}</td><td>{{mem.content}}</td>
 											</tr>
-										</tbody>
 									</table>
 									</div>
 								</div>
