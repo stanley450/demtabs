@@ -580,6 +580,7 @@
 					}
 					// convert to hex to store in memory
 					var hex = parseInt(arg2,10);
+					console.log(hex);
 					// hex length checking goes here.
 					hex = this.decimalToHex(hex, 2);
 				    // Store in memory
@@ -832,68 +833,70 @@
 				}else{
 					this.zeroFlag = 0;
 				}
+				console.log("Compare "+this.register[reg1][0]+" and "+this.register[reg2][0]);
 		};
 
 		// Observes flags set by Compare and adjusts program counter accordingly
-		this.branch = function(cond, address){
+		this.branch = function(cond, addr1, addr2){
+			console.log("Branch "+cond);
 			if (cond == "0"){
 			//EQ
 				if(this.zeroFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "1"){
 			//NE
 				if(this.zeroFlag == 0){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "2"){
 			//LT
 				if(this.negativeFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "3"){
 			//LE
 				if(this.zeroFlag == 1 || negativeFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "4"){
 			//GT
 				if(this.zeroFlag == 0 || negativeFlag == 0){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "5"){
 			//GE
 				if(this.negativeFlag == 0){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "6"){
 			//CARY
 				if(this.carryFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "7"){
 			//Neg
 				if(this.negativeFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "8"){
 			//Zero
 				if(this.zeroFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}
 			else if (cond == "9"){
 			//over
 				if(this.overflowFlag == 1){
-					this.jump(address);
+					this.jump(addr1, addr2);
 				}
 			}else{
 				this.programCounter++;
@@ -902,8 +905,8 @@
 		
 		// Sets program counter to be equal to the given memory address
 		this.jump = function(addr1, addr2){
-			var num = this.memory[parseInt(addr1 + addr2, 16)];
-			this.programCounter = parseInt(num[0]+num[1], 10);;
+			this.programCounter = parseInt(addr1+addr2, 16);
+			console.log("Jump "+addr1+addr2);
 		};
 		
 		// Sets the stop flag to true.
@@ -981,6 +984,7 @@
 					this.branch(this.memory[line][1],this.memory[line][2],this.memory[line][3]);
 					break;
 				case 14: // 1110b Jump
+					console.log(this.memory[line][2] + "" + this.memory[line][3]);
 					this.jump(this.memory[line][2],this.memory[line][3]);
 					break;
 				case 15: // 1111b Halt
@@ -1177,6 +1181,8 @@
 			$scope.reset = function(){
 				$scope.assembler.reset();
 				$scope.architecture();
+				$interval.cancel(intervalId);
+
 			};
 			
 			$scope.walk = function(){
