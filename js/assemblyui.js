@@ -23,6 +23,7 @@
 		// Increased when .Block and .Word is used/modified
 		this.programCounter = 0;
 		
+		
 		this.previousCounter = 0;
 		
 		this.offSet = 0;
@@ -1079,10 +1080,32 @@
 		
 		// Returns the current value of the program counter
 		this.returncounter = function(){
-			console.log(this.programCounter);
 			var progcount = this.programCounter;
-			return progcount;
-			
+			return progcount;	
+		};
+		
+		//Returns value of overflow flag
+		this.returnOverflowFlag = function(){
+			var overflowflag = this.overflowFlag;
+			return overflowflag;
+		};
+		
+		//Returns value of negative flag
+		this.returnNegFlag = function(){
+			var negflag = this.negativeFlag;
+			return negflag;
+		};
+		
+		//Returns value of carry flag
+		this.returnCarryFlag = function(){
+			var carryflag = this.carryFlag;
+			return carryflag;
+		};
+		
+		//Returns value of zero flag
+		this.returnZeroFlag = function(){
+			var zeroflag = this.zeroFlag;
+			return zeroflag;
 		};
 		
 	};
@@ -1108,6 +1131,7 @@
 			$scope.assembler = new assembler(tableName, varTable, bool);
 			
 			$scope.architecture = function(){
+				
 				var variables = $scope.assembler.variables;
 				$scope.variables = [{title: variables[0], titletoo: variables[5]}, 
 									{title: variables[1], titletoo: variables[6]},
@@ -1115,6 +1139,7 @@
 									{title: variables[3], titletoo: variables[8]},
 				                    {title: variables[4], titletoo: variables[9]}, 
 				                    ];
+				
 				var register = $scope.assembler.register;
 				$scope.register = [{content: register[0][0], value: register[0][1]},
 				                   {content: register[1][0], value: register[1][1]},
@@ -1133,8 +1158,22 @@
 				                   {content: register[14][0], value: register[14][1]},
 				                   {content: register[15][0], value: register[15][1]},
 				                   ];
+				
+				var overflowFlag = $scope.assembler.returnOverflowFlag();
+				$scope.overflowFlag = [{flag: overflowFlag}];
+				
+				var negativeFlag = $scope.assembler.returnNegFlag();
+				$scope.negativeFlag = [{flag: negativeFlag}];
+				
+				var carryFlag = $scope.assembler.returnCarryFlag();
+				$scope.carryFlag = [{flag: carryFlag}];
+				
+				var zeroFlag = $scope.assembler.returnZeroFlag();
+				$scope.zeroFlag = [{flag: zeroFlag}];
+				
 				var counter = $scope.assembler.returncounter();
 				$scope.counter = [{content:counter}];
+				
 				var memory = $scope.assembler.memory;
 				$scope.memory = [{memno: 0, content: memory[0], code: "Total"},{memno: 1, content: memory[1], code: "ABC"},{memno: 2, content: memory[2], code: "XYZ"},{memno: 3, content: memory[3]},
 				                {memno: 4, content: memory[4]},{memno: 5, content: memory[5]},{memno: 6, content: memory[6]},{memno: 7, content: memory[7]},{memno: 8, content: memory[8]},{memno: 9, content: memory[9]},{memno: 0, content: memory[10]},

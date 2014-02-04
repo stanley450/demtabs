@@ -345,20 +345,20 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>0</td>
+														<tr>
+														<td ng-repeat='carry in carryFlag'>{{carry.flag}}</td>
 														<td>Carry Flag</td>
 													</tr>
 													<tr>
-														<td>0</td>
+														<td ng-repeat='neg in negativeFlag'>{{neg.flag}}</td>
 														<td>Negative Flag</td>
 													</tr>
 													<tr>
-														<td>0</td>
+														<td ng-repeat='zero in zeroFlag'>{{zero.flag}}</td>
 														<td>Zero Flag</td>
 													</tr>
 													<tr>
-														<td>0</td>
+														<td ng-repeat='over in overflowFlag'>{{over.flag}}</td>
 														<td>Overflow Flag</td>
 													</tr>
 												</tbody>
