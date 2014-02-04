@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='assembly'>
 
 	<head>
 		<style type='text/css'>
@@ -14,113 +14,107 @@
 	</head>
 	
 	<!-- controller for the lab -->
-	<body>
+	<body ng-controller='assemblycontroller'>
 	
 		<h1 class='text-center'>Figure 11.3</h1>
 		<hr />
+	<div ng-init='figure("fig3")'></div>
 	<!-- main container for the index -->
-	<div ng-app='assembly' ng-controller='assemblycontroller' class='container'>
-	
-		<div class ='row'>
-			<div id='editor_button_group' class='col-lg-4 col-md-4 btn-group-horizontal'>
-				<button type='button' class='btn btn-success' ng-click='run()'>Run</button>
-				<button type='button' class='btn btn-primary' ng-click='walk()'>Walk</button>
-				<button type='button' class='btn btn-danger' ng-click='reset()'>Reset</button>
-				<button type='button' class='btn btn-warning' ng-click='pause()'>Pause</button>
-				<button type='button' class='btn btn-default'>2/16</button>
-			</div>
-		</div>
-		<br>
+	<div class='container'>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
-			<table id='program'>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td>TOTAL</td>
-					<td>.Block</td>
-					<td>1</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td>ABC</td>
-					<td>.Word</td>
-					<td>2</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td>XYZ</td>
-					<td>.Word</td>
-					<td>3</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Load</td>
-					<td>RegD</td>
-					<td>ABC</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Load</td>
-					<td>RegE</td>
-					<td>XYZ</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Add</td>
-					<td>RegF</td>
-					<td>RegD</td>
-					<td>RegE</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Store</td>
-					<td>RegF</td>
-					<td>TOTAL</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>*</td>
-					<td></td>
-					<td>Halt</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</div>
-		
 				<!-- begining of the tabs -->
-				<tabset class='col-lg-8 col-md-8'>
+				<tabset>
 
 					<!-- demo tab - shows all of the information for the current lab -->
 					<tab heading='Figure'><br>
 						<div class='container'>
-							<div class='row'>								
+							<div class='row'>
+								<div class='col-lg-4 col-md-4'>
+								
+									<!-- table that shows the code -->
+									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px'>
+										<table id='fig3'>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td>TOTAL</td>
+												<td>.Block</td>
+												<td>1</td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td>ABC</td>
+												<td>.Word</td>
+												<td>2</td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td>XYZ</td>
+												<td>.Word</td>
+												<td>3</td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td></td>
+												<td>Load</td>
+												<td>RegD</td>
+												<td>ABC</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td></td>
+												<td>Load</td>
+												<td>RegE</td>
+												<td>XYZ</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td></td>
+												<td>Add</td>
+												<td>RegF</td>
+												<td>RegD</td>
+												<td>RegE</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td></td>
+												<td>Store</td>
+												<td>RegF</td>
+												<td>TOTAL</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>*</td>
+												<td></td>
+												<td>Halt</td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+										</table>
+									</div>
+								</div>
 								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
 									<div id='table' style='width: 90px'>
-										<table id='variables' class='table table-bordered' ng-repeat='var in variables'>
-											<td>{{var.title}}</td><td>{{var.titletoo}}</td>
+										<table id='varfig3' class='table table-bordered' ng-repeat='var in variables'>
+											<td>{{var.title}}</td>
+											
 										</table>
 									</div>
 								</div>
@@ -180,11 +174,15 @@
 								<div class='col-lg-4 col-md-4'>
 								
 									<!-- table containing the memory -->
-									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 300px; width: 200px'>
-									<table class='table table-bordered table-condensed' ng-repeat='mem in memory'>
+									<div class='spanMem'>
+									<table class='table table-bordered' ng-repeat='mem in memory'>
+										<tbody>
 											<tr>
-											<td>{{mem.memno}}</td><td>{{mem.content}}</td>
+												<td>{{mem.memno}}</td>
+												<td>{{mem.content}}</td>
+												<td>{{mem.code}}</td>
 											</tr>
+										</tbody>
 									</table>
 									</div>
 								</div>
@@ -256,6 +254,20 @@
 					</tab>
 				</tabset>
 				<hr />	
+		</div>
+		
+		<!-- buttons for run, walk, and changing from binary to hex -->
+		<div class='row'>
+			<label class='col-lg-3 col-md-3' for='Execution Commands'>Execution Commands</label>
+		</div>
+		<div class ='row'>
+			<div id='editor_button_group' class='col-lg-3 col-md-3 btn-group-horizontal'>
+				<button type='button' class='btn btn-success' ng-click='run()'>Run</button>
+				<button type='button' class='btn btn-primary' ng-click='walk()'>Walk</button>
+				<button type='button' class='btn btn-danger' ng-click='reset()'>Reset</button>
+				<button type='button' class='btn btn-warning' ng-click='pause()'>Pause</button>
+				<button type='button' class='btn btn-default'>2/16</button>
+			</div>
 		</div>
 	</div>
 		
