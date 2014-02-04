@@ -33,7 +33,7 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+		<div class='col-lg-8 col-md-8' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px' id='fig113'>
 			<table id='program'>
 				<tr>
 									<td></td>
@@ -43,6 +43,8 @@
 									<td>1</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>var i;  //  Numeric</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -52,6 +54,8 @@
 									<td>30</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>var a = new array(30); // Numeric</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -60,6 +64,8 @@
 									<td>LoadImm</td>
 									<td>RegA</td>
 									<td>0</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -70,6 +76,8 @@
 									<td>RegA</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>i = 0;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -79,6 +87,8 @@
 									<td>RegA</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>while (i  < 30) </td>
 								</tr>
 								<tr>
 									<td></td>
@@ -87,6 +97,8 @@
 									<td>LoadImm</td>
 									<td>RegB</td>
 									<td>30</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -97,6 +109,8 @@
 									<td>RegA</td>
 									<td>RegB</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -106,6 +120,8 @@
 									<td>GE</td>
 									<td>ENDLP</td>
 									<td></td>
+									<td>;</td>
+									<td>{</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -115,6 +131,8 @@
 									<td>RegA</td>
 									<td>1</td>
 									<td></td>
+									<td>;</td>
+									<td>Register A assigned the base address of array a</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -124,6 +142,8 @@
 									<td>RegB</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>Register B assigned the value of subscript i </td>
 								</tr>
 								<tr>
 									<td></td>
@@ -133,6 +153,8 @@
 									<td>RegC</td>
 									<td>RegA</td>
 									<td>RegB</td>
+									<td>;</td>
+									<td>Register C assigned  the address of a[i]</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -142,6 +164,8 @@
 									<td>RegD</td>
 									<td>-1</td>
 									<td></td>
+									<td>;</td>
+									<td>Register D assigned the constant  -1</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -151,6 +175,8 @@
 									<td>RegD</td>
 									<td>RegC</td>
 									<td></td>
+									<td>;</td>
+									<td>a[i] = -1;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -159,6 +185,8 @@
 									<td>Load</td>
 									<td>RegA</td>
 									<td>I</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -169,6 +197,8 @@
 									<td>RegB</td>
 									<td>1</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -178,6 +208,8 @@
 									<td>RegC</td>
 									<td>RegA</td>
 									<td>RegB</td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -187,6 +219,8 @@
 									<td>RegC</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>i = i + 1;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -196,6 +230,8 @@
 									<td>LOOP</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>}</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -204,6 +240,8 @@
 									<td>Halt</td>
 									<td></td>
 									<td></td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 			</table>

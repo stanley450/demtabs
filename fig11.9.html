@@ -33,7 +33,7 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+		<div class='col-lg-8 col-md-8' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px' id='fig113'>
 			<table id='program'>
 				<tr>
 									<td></td>
@@ -43,6 +43,8 @@
 									<td>5</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare and initialize 'x' to 5    &#47;&#42; first operand &#42;&#47;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -52,6 +54,8 @@
 									<td>4</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare and initialize 'y' to 4    &#47;&#42; second operand &#42;&#47;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -61,6 +65,8 @@
 									<td>1</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare 'z'  &#47;&#42; z will hold the product of the operands &#42;&#47; </td>
 								</tr>
 								<tr>
 									<td></td>
@@ -70,6 +76,8 @@
 									<td>1</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare 'i'  &#47;&#42; i counts the number of loop iterations &#42;&#47; </td>
 								</tr>
 								<tr>
 									<td></td>
@@ -79,6 +87,8 @@
 									<td>RegA</td>
 									<td>0</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -88,6 +98,8 @@
 									<td>RegA</td>
 									<td>Z</td>
 									<td></td>
+									<td>;</td>
+									<td>z = 0;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -96,6 +108,8 @@
 									<td>LoadImm</td>
 									<td>RegA</td>
 									<td>1</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -106,6 +120,8 @@
 									<td>RegA</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>i = 1;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -115,6 +131,8 @@
 									<td>RegA</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>while(i<=y)</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -123,6 +141,8 @@
 									<td>Load</td>
 									<td>RegB</td>
 									<td>Y</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -133,6 +153,8 @@
 									<td>RegA</td>
 									<td>RegB</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -142,6 +164,8 @@
 									<td>GT</td>
 									<td>ENDLP</td>
 									<td></td>
+									<td>;</td>
+									<td>{</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -150,6 +174,8 @@
 									<td>Load</td>
 									<td>RegA</td>
 									<td>Z</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -160,6 +186,8 @@
 									<td>RegB</td>
 									<td>X</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -169,6 +197,8 @@
 									<td>RegC</td>
 									<td>RegA</td>
 									<td>RegB</td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -178,6 +208,8 @@
 									<td>RegC</td>
 									<td>Z</td>
 									<td></td>
+									<td>;</td>
+									<td> z = z + x;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -186,6 +218,8 @@
 									<td>Load</td>
 									<td>RegA</td>
 									<td>I</td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 								<tr>
@@ -196,6 +230,8 @@
 									<td>RegB</td>
 									<td>1</td>
 									<td></td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -205,6 +241,8 @@
 									<td>RegC</td>
 									<td>RegA</td>
 									<td>RegB</td>
+									<td>;</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td></td>
@@ -214,6 +252,8 @@
 									<td>RegC</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>i = i + 1;</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -222,6 +262,19 @@
 									<td>Jump</td>
 									<td>LOOP</td>
 									<td></td>
+									<td></td>
+									<td>;</td>
+									<td>}</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>*</td>
+									<td>ENDLP</td>
+									<td>Halt</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>;</td>
 									<td></td>
 								</tr>
 			</table>

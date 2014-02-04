@@ -33,7 +33,7 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+		<div class='col-lg-8 col-md-8' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px' id='fig113'>
 			<table id='program'>
 				<tr>
 									<td></td>
@@ -43,6 +43,8 @@
 									<td>5</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare and initialize 'x' to 5    /* first operand */</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -52,6 +54,8 @@
 									<td>4</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare and initialize 'y' to 4    /* second operand */</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -61,6 +65,8 @@
 									<td>1</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare 'z'  /* z will hold the product of the operands */ </td>
 								</tr>
 								<tr>
 									<td></td>
@@ -70,6 +76,8 @@
 									<td>1</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>declare 'i'   /* i counts the number of loop iterations */</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -79,6 +87,8 @@
 									<td>Reg1</td>
 									<td>1</td>
 									<td></td>
+									<td>;</td>
+									<td>register 1 holds the constant value 1.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -88,6 +98,8 @@
 									<td>RegA</td>
 									<td>X</td>
 									<td></td>
+									<td>;</td>
+									<td>register A holds the value of variable 'x'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -97,6 +109,8 @@
 									<td>RegB</td>
 									<td>Y</td>
 									<td></td>
+									<td>;</td>
+									<td>register B holds the value of variable 'y'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -106,6 +120,8 @@
 									<td>RegC</td>
 									<td>0</td>
 									<td></td>
+									<td>;</td>
+									<td>register C holds the value of variable 'z' &#45; initially 0.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -115,6 +131,8 @@
 									<td>RegD</td>
 									<td>1</td>
 									<td></td>
+									<td>;</td>
+									<td>register D holds the value of variable 'i' &#45; initially 1.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -124,6 +142,8 @@
 									<td>RegD</td>
 									<td>RegB</td>
 									<td></td>
+									<td>;</td>
+									<td>compare register D (the counter 'i') to register B ('y').</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -133,6 +153,8 @@
 									<td>GT</td>
 									<td>ENDLP</td>
 									<td></td>
+									<td>;</td>
+									<td>if  'i' is greater  than 'y' then branch to 'endlp'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -142,6 +164,8 @@
 									<td>RegC</td>
 									<td>RegC</td>
 									<td>RegA</td>
+									<td>;</td>
+									<td>otherwise, add the value of  'x' to  'z'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -151,6 +175,8 @@
 									<td>RegD</td>
 									<td>RegD</td>
 									<td>Reg1</td>
+									<td>;</td>
+									<td>add 1 to the counter 'i'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -160,6 +186,8 @@
 									<td>LOOP</td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>return to the top of the loop.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -169,6 +197,8 @@
 									<td>RegD</td>
 									<td>I</td>
 									<td></td>
+									<td>;</td>
+									<td>copy results back to main memory variables.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -178,6 +208,8 @@
 									<td>RegC</td>
 									<td>Z</td>
 									<td></td>
+									<td>;</td>
+									<td>the product of 'x' and 'y' is saved in variable 'z'.</td>
 								</tr>
 								<tr>
 									<td></td>
@@ -187,6 +219,8 @@
 									<td></td>
 									<td></td>
 									<td></td>
+									<td>;</td>
+									<td>halt execution of this assembly language program.</td>
 								</tr>
 			</table>
 		</div>

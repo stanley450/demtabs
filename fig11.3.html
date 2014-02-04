@@ -33,7 +33,7 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+		<div class='col-lg-8 col-md-8' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px' id='fig113'>
 			<table id='program'>
 				<tr>
 					<td></td>
@@ -43,6 +43,8 @@
 					<td>1</td>
 					<td></td>
 					<td></td>
+					<td>;</td>
+					<td>reserve a block of memory one word long for 'total'.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -52,6 +54,8 @@
 					<td>2</td>
 					<td></td>
 					<td></td>
+					<td>;</td>
+					<td>reserve a word of memory for variable 'abc'.  Initialize to 2.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -61,6 +65,8 @@
 					<td>3</td>
 					<td></td>
 					<td></td>
+					<td>;</td>
+					<td>reserve a word of memory for variable 'xyz'.  Initialize to 3.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -70,6 +76,8 @@
 					<td>RegD</td>
 					<td>ABC</td>
 					<td></td>
+					<td>;</td>
+					<td>load the value of variable 'abc' into register D.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -79,6 +87,8 @@
 					<td>RegE</td>
 					<td>XYZ</td>
 					<td></td>
+					<td>;</td>
+					<td>load the value of variable 'xyz' into register E.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -88,6 +98,8 @@
 					<td>RegF</td>
 					<td>RegD</td>
 					<td>RegE</td>
+					<td>;</td>
+					<td>add the contents of registers D and E placing the result in F.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -97,6 +109,8 @@
 					<td>RegF</td>
 					<td>TOTAL</td>
 					<td></td>
+					<td>;</td>
+					<td>store the value held in register F into the variable 'total'.</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -106,6 +120,8 @@
 					<td></td>
 					<td></td>
 					<td></td>
+					<td>;</td>
+					<td>halt execution of this assembly language program.</td>
 				</tr>
 			</table>
 		</div>

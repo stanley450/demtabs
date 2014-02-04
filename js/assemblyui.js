@@ -23,6 +23,10 @@
 		// Increased when .Block and .Word is used/modified
 		this.programCounter = 0;
 		
+		this.previousCounter = 0;
+		
+		this.offSet = 0;
+		
 		// Current program counter
 		// Kept constant
 		this.startCounter = this.programCounter;
@@ -153,16 +157,15 @@
 			var progLine = 0;
 			var memLine = 0;
 			var refLine = 0;
-			var offSet = 0;
 			var index = 0;
 			
 			// Populate the labels array for memory lookup
 			while(progLine<table.rows.length){
 				if(table.rows[progLine].cells[this.labelNum].firstChild != null && table.rows[progLine].cells[this.labelNum].firstChild.nodeValue != null){
 					var ref = table.rows[progLine].cells[this.labelNum].firstChild.nodeValue;
-					this.labels[refLine++] = [ref, progLine + offSet];
+					this.labels[refLine++] = [ref, progLine + this.offSet];
 					if(table.rows[progLine].cells[this.cmdNum].firstChild.nodeValue == ".Block") {
-						offSet+=parseInt(table.rows[progLine].cells[this.arg1Num].firstChild.nodeValue, 10)-1;
+						this.offSet+=parseInt(table.rows[progLine].cells[this.arg1Num].firstChild.nodeValue, 10)-1;
 					}
 				}
 				progLine++;
@@ -560,7 +563,7 @@
 						}
 					}
 					// Convert to hex to store in memory
-					var hex = parseInt(arg2,16);
+					var hex = parseInt(arg2,10);
 					// hex length checking goes here.
 					hex = this.decimalToHex(hex, 2);
 				    // Store in memory
@@ -644,10 +647,10 @@
 			} else { 
 				this.zeroFlag = 0;
 			}
-			if(this.register[reg1][1] >= -1){
+			if(this.register[reg1][1] <= -1){
 				this.negativeFlag = 1;
 			} else {
-				this.negativeFlag = 1;
+				this.negativeFlag = 0;
 			}
 
 			// Update value in Variable array
@@ -839,68 +842,80 @@
 		// Observes flags set by Compare and adjusts program counter accordingly
 		this.branch = function(cond, addr1, addr2){
 			console.log("Branch "+cond);
+			console.log("Neg "+this.negativeFlag);
+			console.log("Zero "+this.zeroFlag);
 			if (cond == "0"){
 			//EQ
 				if(this.zeroFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "1"){
 			//NE
 				if(this.zeroFlag == 0){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "2"){
 			//LT
 				if(this.negativeFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "3"){
 			//LE
-				if(this.zeroFlag == 1 || negativeFlag == 1){
+				if(this.zeroFlag == 1 || this.negativeFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "4"){
 			//GT
-				if(this.zeroFlag == 0 || negativeFlag == 0){
+				if(this.zeroFlag == 0 && this.negativeFlag == 0){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "5"){
 			//GE
 				if(this.negativeFlag == 0){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "6"){
 			//CARY
 				if(this.carryFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "7"){
 			//Neg
 				if(this.negativeFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "8"){
 			//Zero
 				if(this.zeroFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
 			}
 			else if (cond == "9"){
 			//over
 				if(this.overflowFlag == 1){
 					this.jump(addr1, addr2);
+					return;
 				}
-			}else{
-				this.programCounter++;
-				}
+			}
+			this.programCounter++;
+				
 		};
 		
 		// Sets program counter to be equal to the given memory address
@@ -996,24 +1011,26 @@
 		// Walks through one step of the program
 		this.walk = function() {
 			var table = document.getElementById(this.tableName);
-			var numCells = table.rows[this.programCounter].cells.length;
+			var numCells = table.rows[this.programCounter-this.offSet].cells.length;
 			if(this.edited) {
 				this.init();
+				this.previousCounter = this.programCounter;
 				console.log("Program Initialized");
 			} 
 			if(this.done){
 				this.reset();
 			}
 			if(!this.stop) {
-									// grab the number of cells for this row
-				var previousCounter = this.programCounter;
+				
 				for (var i = 0; i < numCells; i++) {										// iterate throughout the cells
-					table.rows[this.programCounter].cells[i].style.color = '#FF0000';		// highlight all cells red
+					table.rows[this.previousCounter-this.offSet].cells[i].style.color = '#000000';			// highlight all cells black
+				}					// grab the number of cells for this row
+				this.previousCounter = this.programCounter;
+				for (var i = 0; i < numCells; i++) {										// iterate throughout the cells
+					table.rows[this.programCounter-this.offSet].cells[i].style.color = '#FF0000';		// highlight all cells red
 				}
 				parser.eval(this.programCounter);
-				for (var i = 0; i < numCells; i++) {										// iterate throughout the cells
-					table.rows[previousCounter].cells[i].style.color = '#000000';			// highlight all cells black
-				}
+				
 			} else {
 				this.stop = false;
 			}
@@ -1124,7 +1141,7 @@
 								{memno: 0, content: memory[11]},{memno: 0, content: memory[12]},{memno: 0, content: memory[13]},{memno: 0, content: memory[14]},{memno: 0, content: memory[15]},{memno: 0, content: memory[16]},
 								{memno: 0, content: memory[17]},{memno: 0, content: memory[18]},{memno: 0, content: memory[19]},{memno: 0, content: memory[20]},{memno: 0, content: memory[21]},{memno: 0, content: memory[22]},{memno: 0, content: memory[23]},
 								{memno: 0, content: memory[24]},{memno: 0, content: memory[25]},{memno: 0, content: memory[26]},{memno: 0, content: memory[27]},{memno: 0, content: memory[28]},{memno: 0, content: memory[29]},
-								{memno: 0, content: memory[30]},{memno: 0, content: memory[31]},{memno: 0, content: memory[32]},{memno: 0, content: memory[33]},{memno: 0, content: memory[34]},{memno: 0, content: memory[35]},
+								{memno: 0, content: memory[30]},{memno: 0, content: memory[31]},{memno: 32, content: memory[32]},{memno: 33, content: memory[33]},{memno: 0, content: memory[34]},{memno: 0, content: memory[35]},
 								{memno: 0, content: memory[36]},{memno: 0, content: memory[37]},{memno: 0, content: memory[38]},{memno: 0, content: memory[39]},{memno: 0, content: memory[40]},{memno: 0, content: memory[41]},
 								{memno: 0, content: memory[42]},{memno: 0, content: memory[43]},{memno: 0, content: memory[44]},{memno: 0, content: memory[45]},{memno: 0, content: memory[46]},{memno: 0, content: memory[47]},
 								{memno: 0, content: memory[48]},{memno: 0, content: memory[49]},{memno: 0, content: memory[50]},{memno: 0, content: memory[51]},{memno: 0, content: memory[52]},{memno: 0, content: memory[53]},
@@ -1186,12 +1203,13 @@
 			};
 			
 			$scope.walk = function(){
-				$scope.assembler.walk();
 				$scope.done = $scope.assembler.done;
-				
 				if($scope.done == true){
 					$interval.cancel(intervalId);
-				};				
+				};	
+				if($scope.done == false){
+					$scope.assembler.walk();
+				};
 				$scope.architecture();
 				
 			};
@@ -1199,6 +1217,7 @@
 			var intervalId;
 			
 			$scope.run = function(){
+				$scope.assembler.run();
 				$scope.architecture();
 				intervalId = $interval($scope.walk, 1000);
 			};
