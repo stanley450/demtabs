@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
 
 	<head>
 		<style type='text/css'>
@@ -9,14 +9,14 @@
 		</style>
 		
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-		<title>Figure 11.3</title>
+		<title>Figure 11.4</title>
 		<link rel='stylesheet' href='lib/css/bootstrap-3.css'>
 	</head>
 	
 	<!-- controller for the lab -->
 	<body>
 	
-		<h1 class='text-center'>Figure 11.3</h1>
+		<h1 class='text-center'>Figure 11.4</h1>
 		<hr />
 	<!-- main container for the index -->
 	<div ng-app='assembly' ng-controller='assemblycontroller' class='container'>
@@ -33,7 +33,7 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px' id='fig113'>
+		<div class='col-lg-3 col-md-3' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px; width: 350px'>
 			<table id='fig3'>
 				<tr>
 					<td></td>
@@ -186,11 +186,14 @@
 								<div class='col-lg-4 col-md-4'>
 								
 									<!-- table containing the memory -->
-									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 300px; width: 200px'>
-									<table class='table table-bordered table-condensed' ng-repeat='mem in memory'>
+									<div class='spanMem'>
+									<table class='table table-bordered' ng-repeat='mem in memory'>
+										<tbody>
 											<tr>
-											<td>{{mem.memno}}</td><td>{{mem.content}}</td>
+												<td>{{mem.memno}}</td>
+												<td>{{mem.content}}</td>
 											</tr>
+										</tbody>
 									</table>
 									</div>
 								</div>
