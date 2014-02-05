@@ -1084,7 +1084,7 @@
 			
 			for(var i = 0; i < this.varRegister.length; i++) {
 				this.varRegister[i][0] = this.initVarRegister[i][0];
-				this.varRegister[i][1] = this.initVarRegister[i][0];
+				this.varRegister[i][1] = this.initVarRegister[i][1];
 			}
 			
 			var table = document.getElementById(this.tableName);
@@ -1094,6 +1094,11 @@
 					table.rows[j].cells[i].style.color = '#000000';			// highlight all cells black
 				}
 			}
+			
+			this.overflowFlag = 0;
+			this.negativeFlag = 0;
+			this.zeroFlag = 0;
+			this.carryFlag = 0;
 			
 			this.clearRegister();
 			this.done = false;
