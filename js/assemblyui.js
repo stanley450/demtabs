@@ -1152,7 +1152,6 @@
 			var tableName = "program";
 			var varTable = "variables";
 			var bool = false;
-			
 
 			$scope.assembler = new assembler(tableName, varTable, bool);
 			
@@ -1210,6 +1209,15 @@
 				$scope.counter = [{content:counter}];
 				
 				var memory = $scope.assembler.memory;
+				for(var i = 0; i < 256; i++) {
+					for(var j = 0; j < 4; j++){
+						if(typeof memory[i][j] == 'string' || memory[i][j] instanceof String){
+							// Do nothing, is a hex
+						} else {
+							memory[i][j] = $scope.assembler.decimalToHex(memory[i][j], 1);
+						}
+					}
+				}
 				$scope.memory = [{memno: 0, content: memory[0]},{memno: 1, content: memory[1]},{memno: 2, content: memory[2]},{memno: 3, content: memory[3]},
 				                 {memno: 4, content: memory[4]},{memno: 5, content: memory[5]},{memno: 6, content: memory[6]},{memno: 7, content: memory[7]},{memno: 8, content: memory[8]},{memno: 9, content: memory[9]},{memno: 10, content: memory[10]},
 									{memno: 11, content: memory[11]},{memno: 12, content: memory[12]},{memno: 13, content: memory[13]},{memno: 14, content: memory[14]},{memno: 15, content: memory[15]},{memno: 16, content: memory[16]},
