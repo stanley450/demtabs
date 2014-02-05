@@ -203,6 +203,7 @@
 						this.memory[memLine] = ['0', '0', '0', '0'];
 						this.initMemory[memLine++] = ['0', '0', '0', '0'];
 						this.programCounter++;
+						this.startCounter = this.programCounter;
 					}
 					// Store variable for display
 					// Note: May behave strangely with multiple Words
