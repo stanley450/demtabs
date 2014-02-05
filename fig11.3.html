@@ -194,7 +194,7 @@
 						<div class='container'>
 							<div class='row'>
 								<div class='col-lg-2 col-md-2 spanMem'>
-									<table class='table table-bordered' ng-repeat='mem in memory'>
+									<table class='table table-bordered' ng-repeat='mem in varmemory'>
 											<tr>
 												<td>{{mem.memno}}</td><td>{{mem.content}}</td>
 											</tr>
@@ -203,7 +203,7 @@
 								
 								<!-- table containing the register information -->
 								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 spanReg'>
-									<table class='table table-bordered'  ng-repeat='reg in register'>
+									<table class='table table-bordered'  ng-repeat='reg in varregister'>
 										<tbody>
 											<tr>
 												<td>{{reg.content}}</td><td>{{reg.value}}</td>

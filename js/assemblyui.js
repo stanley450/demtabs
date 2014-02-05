@@ -602,10 +602,11 @@
 			}
 			// Iterate over registers to see which ones are used
 			// Create cells in variable array for these registers
+			var varRegIndex = 0;
 			for(var i = 0; i < 16; i++){
 				if(this.register[i][2]){
-					this.varRegister[index] = [this.register[i][0], 0];
-					this.initVarRegister[index] = [this.varRegister[index][0], this.varRegister[index++][1]];
+					this.varRegister[varRegIndex] = [this.register[i][0], 0];
+					this.initVarRegister[varRegIndex] = [this.varRegister[varRegIndex][0], this.varRegister[varRegIndex++][1]];
 				}
 			}
 			// Signal that program has been parsed
@@ -1150,24 +1151,27 @@
 
 			$scope.assembler = new assembler(tableName, varTable, bool);
 			
+			$scope.assembler.init();
+			
 			$scope.architecture = function(){
-				
-				var varmemory = $scope.assembler.varMemory;
-				$scope.varmemory = [
-				                    {title: varmemory[0][0], value: varmemory[0][1]},
-				                    {title: varmemory[0][0], value: varmemory[0][0]},
-				                    {title: varmemory[0][0], value: varmemory[0][0]},
-				                    {title: varmemory[0][0], value: varmemory[0][0]},
-				                    {title: varmemory[0][0], value: varmemory[0][0]}
+				console.log("Got here");
+				var varMemory = $scope.assembler.varMemory;
+				console.log($scope.assembler.varMemory);
+				$scope.varMemory = [
+				                    {title: varMemory[0][0], value: varMemory[0][1]},
+				                    {title: varMemory[0][0], value: varMemory[0][0]},
+				                    {title: varMemory[0][0], value: varMemory[0][0]},
+				                    {title: varMemory[0][0], value: varMemory[0][0]},
+				                    {title: varMemory[0][0], value: varMemory[0][0]}
 				                    ];
-				
-				var varreg = $scope.assembler.varRegister;
-				$scope.varreg = [
-			                 {title: varreg[0], value: varreg[0]},
-			                 {title: varreg[1], value: varreg[1]},
-			                 {title: varreg[2], value: varreg[2]},
-			                 {title: varreg[3], value: varreg[3]},
-			                 {title: varreg[4], value: varreg[4]}
+
+				var varRegister = $scope.assembler.varRegister;
+				$scope.varRegister = [
+			                 {title: varRegister[0][0], value: varRegister[0][1]},
+			                 {title: varRegister[1][0], value: varRegister[1][1]},
+			                 {title: varRegister[2][0], value: varRegister[2][1]},
+			                 {title: varRegister[3][0], value: varRegister[3][1]},
+			                 {title: varRegister[4][0], value: varRegister[4][1]}
 			                 ];
 				
 				var register = $scope.assembler.register;
