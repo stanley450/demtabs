@@ -1158,9 +1158,9 @@
 			$scope.assembler.init();
 			
 			$scope.architecture = function(){
-				console.log("Got here");
+				
 				var varMemory = $scope.assembler.varMemory;
-				console.log($scope.assembler.varMemory);
+			
 				$scope.varMemory = [
 				                    {title: varMemory[0][0], value: varMemory[0][1]},
 				                    {title: varMemory[1][0], value: varMemory[1][1]},
@@ -1222,6 +1222,7 @@
 						}
 					}
 				}
+				$scope.instructionRegister = [{content:memory[counter]}];
 				$scope.memory = [{memno: 0, content: memory[0]},{memno: 1, content: memory[1]},{memno: 2, content: memory[2]},{memno: 3, content: memory[3]},
 				                 {memno: 4, content: memory[4]},{memno: 5, content: memory[5]},{memno: 6, content: memory[6]},{memno: 7, content: memory[7]},{memno: 8, content: memory[8]},{memno: 9, content: memory[9]},{memno: 10, content: memory[10]},
 									{memno: 11, content: memory[11]},{memno: 12, content: memory[12]},{memno: 13, content: memory[13]},{memno: 14, content: memory[14]},{memno: 15, content: memory[15]},{memno: 16, content: memory[16]},
