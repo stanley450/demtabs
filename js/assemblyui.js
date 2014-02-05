@@ -95,7 +95,7 @@
 		// Initially zero before starting
 		this.memory = new Array(256);
 		  for (var i = 0; i < 256; i++) {
-		    this.memory[i] = [0,0,0,0];
+		    this.memory[i] = ["0","0","0","0"];
 		  }
 
 		// Stores initial values for memory
