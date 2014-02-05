@@ -1159,19 +1159,15 @@
 				console.log($scope.assembler.varMemory);
 				$scope.varMemory = [
 				                    {title: varMemory[0][0], value: varMemory[0][1]},
-				                    {title: varMemory[0][0], value: varMemory[0][0]},
-				                    {title: varMemory[0][0], value: varMemory[0][0]},
-				                    {title: varMemory[0][0], value: varMemory[0][0]},
-				                    {title: varMemory[0][0], value: varMemory[0][0]}
+				                    {title: varMemory[1][0], value: varMemory[1][1]},
+				                    {title: varMemory[2][0], value: varMemory[2][1]}
 				                    ];
 
 				var varRegister = $scope.assembler.varRegister;
 				$scope.varRegister = [
 			                 {title: varRegister[0][0], value: varRegister[0][1]},
 			                 {title: varRegister[1][0], value: varRegister[1][1]},
-			                 {title: varRegister[2][0], value: varRegister[2][1]},
-			                 {title: varRegister[3][0], value: varRegister[3][1]},
-			                 {title: varRegister[4][0], value: varRegister[4][1]}
+			                 {title: varRegister[2][0], value: varRegister[2][1]}
 			                 ];
 				
 				var register = $scope.assembler.register;

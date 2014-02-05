@@ -132,11 +132,19 @@
 					<tab heading='Figure'><br>
 						<div class='container'>
 							<div class='row'>								
-								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
+								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1'>
 									<div id='table' style='width: 90px'>
-										<table id='variables' class='table table-bordered' ng-repeat='mem in varmemory'>
-											<tr><tdcolspan='2' class='text-center'>Memory</td></tr>
-											<tr><td >{{mem.title}}</td><td>{{mem.value}}</td></tr>
+										<table id='variables' class='table table-bordered'>
+											<thead><tr><th colspan='2' class='text-center'>Memory</th></tr></thead>
+											<tbody ng-repeat='mem in varMemory'><tr><td>{{mem.title}}</td><td>{{mem.value}}</td></tr></tbody>
+										</table>
+									</div>
+								</div>
+								<div class='col-lg-2 col-md-2'>
+									<div id='table' style='width: 90px'>
+										<table id='variables' class='table table-bordered' >
+											<thead><tr><th colspan='2' class='text-center'>Register</th></tr></thead>
+											<tbody ng-repeat='reg in varRegister'><tr><td>{{reg.title}}</td><td>{{reg.value}}</td></tr></tbody>
 										</table>
 									</div>
 								</div>
@@ -193,8 +201,8 @@
 					<tab heading='Architecture'><br>
 						<div class='container'>
 							<div class='row'>
-								<div class='col-lg-2 col-md-2 spanMem'>
-									<table class='table table-bordered' ng-repeat='mem in varmemory'>
+								<div class='col-lg-2 col-md-2 col-sm-2 col-xs-2 spanMem'>
+									<table class='table table-bordered' ng-repeat='mem in memory'>
 											<tr>
 												<td>{{mem.memno}}</td><td>{{mem.content}}</td>
 											</tr>
@@ -202,8 +210,8 @@
 								</div>
 								
 								<!-- table containing the register information -->
-								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 spanReg'>
-									<table class='table table-bordered'  ng-repeat='reg in varregister'>
+								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1 spanReg'>
+									<table class='table table-bordered'  ng-repeat='reg in register'>
 										<tbody>
 											<tr>
 												<td>{{reg.content}}</td><td>{{reg.value}}</td>
@@ -212,7 +220,7 @@
 									</table>
 								</div>
 								<!-- program counter and instruction register table -->
-								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1'>
+								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1'>
 									<table class='table table-bordered' style='height: 100px; width: 170px'>
 										<thead>
 											<tr>
