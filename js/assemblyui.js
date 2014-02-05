@@ -200,8 +200,8 @@
 					// Reserve number of rows indicated by argument
 					var arg1 = table.rows[progLine].cells[this.arg1Num].firstChild.nodeValue;
 					for(var i = 0; i < arg1; i++) {
-						this.memory[memLine] = ['0', '0', '0', '0'];
-						this.initMemory[memLine++] = ['0', '0', '0', '0'];
+						this.memory[memLine] = ["0", "0", "0", "0"];
+						this.initMemory[memLine++] = ["0", "0", "0", "0"];
 						this.programCounter++;
 						this.startCounter = this.programCounter;
 					}
@@ -1149,7 +1149,7 @@
 			
 			$scope.error = function() {document.write('<h1>you broke it.</h1>');};
 			
-
+			
 			var tableName = "program";
 			var varTable = "variables";
 			var bool = false;
@@ -1245,33 +1245,31 @@
 									{memno: 109, content: memory[109]},{memno: 110, content: memory[110]},{memno: 111, content: memory[111]},{memno: 112, content: memory[112]},{memno: 113, content: memory[113]},{memno: 114, content: memory[114]},
 									{memno: 115, content: memory[115]},{memno: 116, content: memory[116]},{memno: 117, content: memory[117]},{memno: 118, content: memory[118]},{memno: 119, content: memory[119]},{memno: 120, content: memory[120]},
 									{memno: 121, content: memory[121]},{memno: 122, content: memory[122]},{memno: 123, content: memory[123]},{memno: 124, content: memory[124]},{memno: 125, content: memory[125]},{memno: 126, content: memory[126]},
-									{memno: 127, content: memory[127]},{memno: 0, content: memory[128]},{memno: 0, content: memory[129]},{memno: 0, content: memory[120]},{memno: 0, content: memory[121]},{memno: 0, content: memory[122]},
-									{memno: 0, content: memory[123]},{memno: 0, content: memory[124]},{memno: 0, content: memory[125]},{memno: 0, content: memory[126]},{memno: 0, content: memory[127]},{memno: 0, content: memory[128]},
-									{memno: 0, content: memory[129]},{memno: 0, content: memory[130]},{memno: 0, content: memory[131]},{memno: 0, content: memory[132]},{memno: 0, content: memory[133]},{memno: 0, content: memory[134]},
-									{memno: 0, content: memory[135]},{memno: 0, content: memory[136]},{memno: 0, content: memory[137]},{memno: 0, content: memory[138]},{memno: 0, content: memory[139]},{memno: 0, content: memory[140]},
-									{memno: 0, content: memory[141]},{memno: 0, content: memory[142]},{memno: 0, content: memory[143]},{memno: 0, content: memory[144]},{memno: 0, content: memory[145]},{memno: 0, content: memory[146]},
-									{memno: 0, content: memory[147]},{memno: 0, content: memory[148]},{memno: 0, content: memory[149]},{memno: 0, content: memory[150]},{memno: 0, content: memory[151]},{memno: 0, content: memory[152]},
-									{memno: 0, content: memory[153]},{memno: 0, content: memory[154]},{memno: 0, content: memory[155]},{memno: 0, content: memory[156]},{memno: 0, content: memory[157]},{memno: 0, content: memory[158]},
-									{memno: 0, content: memory[159]},{memno: 0, content: memory[160]},{memno: 0, content: memory[161]},{memno: 0, content: memory[162]},{memno: 0, content: memory[163]},{memno: 0, content: memory[164]},
-									{memno: 0, content: memory[165]},{memno: 0, content: memory[166]},{memno: 0, content: memory[167]},{memno: 0, content: memory[168]},{memno: 0, content: memory[169]},{memno: 0, content: memory[170]},
-									{memno: 0, content: memory[171]},{memno: 0, content: memory[172]},{memno: 0, content: memory[173]},{memno: 0, content: memory[174]},{memno: 0, content: memory[175]},{memno: 0, content: memory[176]},
-									{memno: 0, content: memory[177]},{memno: 0, content: memory[178]},{memno: 0, content: memory[179]},{memno: 0, content: memory[180]},{memno: 0, content: memory[181]},{memno: 0, content: memory[182]},
-									{memno: 0, content: memory[183]},{memno: 0, content: memory[184]},{memno: 0, content: memory[185]},{memno: 0, content: memory[186]},{memno: 0, content: memory[187]},{memno: 0, content: memory[188]},
-									{memno: 0, content: memory[189]},{memno: 0, content: memory[190]},{memno: 0, content: memory[191]},{memno: 0, content: memory[192]},{memno: 0, content: memory[193]},{memno: 0, content: memory[194]},
-									{memno: 0, content: memory[195]},{memno: 0, content: memory[196]},{memno: 0, content: memory[197]},{memno: 0, content: memory[198]},{memno: 0, content: memory[199]},{memno: 0, content: memory[200]},
-									{memno: 0, content: memory[201]},{memno: 0, content: memory[202]},{memno: 0, content: memory[203]},{memno: 0, content: memory[204]},{memno: 0, content: memory[205]},{memno: 0, content: memory[206]},
-									{memno: 0, content: memory[207]},{memno: 0, content: memory[208]},{memno: 0, content: memory[209]},{memno: 0, content: memory[210]},{memno: 0, content: memory[211]},{memno: 0, content: memory[212]},
-									{memno: 0, content: memory[213]},{memno: 0, content: memory[214]},{memno: 0, content: memory[215]},{memno: 0, content: memory[216]},{memno: 0, content: memory[217]},{memno: 0, content: memory[218]},
-									{memno: 0, content: memory[219]},{memno: 0, content: memory[220]},{memno: 0, content: memory[221]},{memno: 0, content: memory[222]},{memno: 0, content: memory[223]},{memno: 0, content: memory[224]},
-									{memno: 0, content: memory[225]},{memno: 0, content: memory[226]},{memno: 0, content: memory[227]},{memno: 0, content: memory[228]},{memno: 0, content: memory[229]},{memno: 0, content: memory[220]},
-									{memno: 0, content: memory[221]},{memno: 0, content: memory[222]},{memno: 0, content: memory[223]},{memno: 0, content: memory[224]},{memno: 0, content: memory[225]},{memno: 0, content: memory[226]},
-									{memno: 0, content: memory[227]},{memno: 0, content: memory[228]},{memno: 0, content: memory[229]},{memno: 0, content: memory[230]},{memno: 0, content: memory[231]},{memno: 0, content: memory[232]},
-									{memno: 0, content: memory[233]},{memno: 0, content: memory[234]},{memno: 0, content: memory[235]},{memno: 0, content: memory[236]},{memno: 0, content: memory[237]},{memno: 0, content: memory[238]},
-									{memno: 0, content: memory[239]},{memno: 0, content: memory[240]},{memno: 0, content: memory[241]},{memno: 0, content: memory[242]},{memno: 0, content: memory[243]},{memno: 0, content: memory[244]},
-									{memno: 0, content: memory[245]},{memno: 0, content: memory[246]},{memno: 0, content: memory[247]},{memno: 0, content: memory[248]},{memno: 0, content: memory[249]},{memno: 0, content: memory[250]},
-									{memno: 0, content: memory[251]},{memno: 0, content: memory[252]},{memno: 0, content: memory[253]},{memno: 0, content: memory[254]},{memno: 0, content: memory[255]}
+									{memno: 127, content: memory[127]},{memno: 128, content: memory[128]},{memno: 129, content: memory[129]},{memno: 130, content: memory[130]},{memno: 131, content: memory[131]},{memno: 132, content: memory[132]},
+									{memno: 133, content: memory[133]},{memno: 134, content: memory[134]},{memno: 135, content: memory[135]},{memno: 136, content: memory[136]},{memno: 137, content: memory[137]},{memno: 138, content: memory[138]},
+									{memno: 139, content: memory[139]},{memno: 140, content: memory[140]},{memno: 141, content: memory[141]},{memno: 142, content: memory[142]},{memno: 143, content: memory[143]},{memno: 144, content: memory[144]},
+									{memno: 145, content: memory[145]},{memno: 146, content: memory[146]},{memno: 147, content: memory[147]},{memno: 148, content: memory[148]},{memno: 149, content: memory[149]},{memno: 150, content: memory[150]},
+									{memno: 151, content: memory[151]},{memno: 152, content: memory[152]},{memno: 153, content: memory[153]},{memno: 154, content: memory[154]},{memno: 155, content: memory[155]},{memno: 156, content: memory[156]},
+									{memno: 157, content: memory[157]},{memno: 158, content: memory[158]},{memno: 159, content: memory[159]},{memno: 160, content: memory[160]},{memno: 161, content: memory[161]},{memno: 162, content: memory[162]},
+									{memno: 163, content: memory[163]},{memno: 164, content: memory[164]},{memno: 165, content: memory[165]},{memno: 166, content: memory[166]},{memno: 167, content: memory[167]},{memno: 168, content: memory[168]},
+									{memno: 169, content: memory[169]},{memno: 170, content: memory[170]},{memno: 171, content: memory[171]},{memno: 172, content: memory[172]},{memno: 173, content: memory[173]},{memno: 174, content: memory[174]},
+									{memno: 175, content: memory[175]},{memno: 176, content: memory[176]},{memno: 177, content: memory[177]},{memno: 178, content: memory[178]},{memno: 179, content: memory[179]},{memno: 180, content: memory[180]},
+									{memno: 181, content: memory[181]},{memno: 182, content: memory[182]},{memno: 183, content: memory[183]},{memno: 184, content: memory[184]},{memno: 185, content: memory[185]},{memno: 186, content: memory[186]},
+									{memno: 187, content: memory[187]},{memno: 188, content: memory[188]},{memno: 189, content: memory[189]},{memno: 190, content: memory[190]},{memno: 191, content: memory[191]},{memno: 192, content: memory[192]},
+									{memno: 193, content: memory[193]},{memno: 194, content: memory[194]},{memno: 195, content: memory[195]},{memno: 196, content: memory[196]},{memno: 197, content: memory[197]},{memno: 198, content: memory[198]},
+									{memno: 199, content: memory[199]},{memno: 200, content: memory[200]},{memno: 201, content: memory[201]},{memno: 202, content: memory[202]},{memno: 203, content: memory[203]},{memno: 204, content: memory[204]},
+									{memno: 205, content: memory[205]},{memno: 206, content: memory[206]},{memno: 207, content: memory[207]},{memno: 208, content: memory[208]},{memno: 209, content: memory[209]},{memno: 210, content: memory[210]},
+									{memno: 211, content: memory[211]},{memno: 212, content: memory[212]},{memno: 213, content: memory[213]},{memno: 214, content: memory[214]},{memno: 215, content: memory[215]},{memno: 216, content: memory[216]},
+									{memno: 217, content: memory[217]},{memno: 218, content: memory[218]},{memno: 219, content: memory[219]},{memno: 220, content: memory[220]},{memno: 221, content: memory[221]},{memno: 222, content: memory[222]},
+									{memno: 223, content: memory[223]},{memno: 224, content: memory[224]},{memno: 225, content: memory[225]},{memno: 226, content: memory[226]},{memno: 227, content: memory[227]},{memno: 228, content: memory[228]},
+									{memno: 229, content: memory[229]},{memno: 230, content: memory[230]},{memno: 231, content: memory[231]},{memno: 232, content: memory[232]},{memno: 233, content: memory[233]},{memno: 234, content: memory[234]},
+									{memno: 235, content: memory[235]},{memno: 236, content: memory[236]},{memno: 237, content: memory[237]},{memno: 238, content: memory[238]},{memno: 239, content: memory[239]},{memno: 240, content: memory[240]},
+									{memno: 241, content: memory[241]},{memno: 242, content: memory[242]},{memno: 243, content: memory[243]},{memno: 244, content: memory[244]},{memno: 245, content: memory[245]},{memno: 246, content: memory[246]},
+									{memno: 247, content: memory[247]},{memno: 248, content: memory[248]},{memno: 249, content: memory[249]},{memno: 250, content: memory[250]},{memno: 251, content: memory[251]},{memno: 252, content: memory[252]},
+									{memno: 253, content: memory[253]},{memno: 254, content: memory[244]},{memno: 255, content: memory[255]}
 									];
 			};
+			
 			
 			$scope.architecture();
 			
