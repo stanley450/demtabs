@@ -1273,11 +1273,13 @@
 									];
 				
 				$scope.set_color = function (num) {
-					  if (num == counter) {
+					if($scope.assembler.done){}else{
+					  if (num == counter-1) {
 					    return { color: "red" };
 					  } else {
 						  return { color: "black" };
 					  }
+					}
 					};
 				
 			};
@@ -1302,8 +1304,8 @@
 			
 			$scope.walk = function(){
 				$scope.done = $scope.assembler.done;
-				var counter = $scope.assembler.returncounter();
 				//$scope.memory[counter].set_color(1);
+				$scope.architecture();
 				if($scope.done == true){
 					$interval.cancel(intervalId);
 				};	
