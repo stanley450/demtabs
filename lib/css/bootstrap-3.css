@@ -31,16 +31,21 @@ video {
   display: inline-block;
 }
 
+.spanTable{
+	border: 1px solid black;
+	width: 100%;
+}
+
 .spanMem {
 	height:300px;
-	width:200px;
+	width: 150px;
 	border: 1px solid black;
 	overflow-y:scroll;
 }
 
 .spanReg {
 	height:300px;
-	width:200px;
+	width: 150px;
 	border: 1px solid black;
 	overflow-y:scroll;
 }
@@ -1418,7 +1423,7 @@ th {
 
 .table {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .table thead > tr > th,

@@ -16,13 +16,12 @@
 	<!-- controller for the lab -->
 	<body>
 	
-		<h1 class='text-center'>Figure 11.3</h1>
-		<hr />
+		<h1 class='text-center'>Figure 11.3</h1><br>
 	<!-- main container for the index -->
 	<div ng-app='assembly' ng-controller='assemblycontroller' class='container'>
 	
 		<div class ='row'>
-			<div id='editor_button_group' class='col-lg-4 col-md-4 btn-group-horizontal'>
+			<div class='btn-group-horizontal'>
 				<button type='button' class='btn btn-success' ng-click='run()'>Run</button>
 				<button type='button' class='btn btn-primary' ng-click='walk()'>Walk</button>
 				<button type='button' class='btn btn-danger' ng-click='reset()'>Reset</button>
@@ -33,8 +32,8 @@
 		<br>
 		<div class='row'>
 		
-		<div class='col-lg-8 col-md-8' id='table' style='overflow-y: scroll; border: 1px solid black; height: 200px' id='fig113'>
-			<table id='program'>
+		<div class='col-lg-12 col-md-12' id='table' id='fig113'>
+			<table id='program' class='spanTable'>
 				<tr>
 					<td></td>
 					<td>*</td>
@@ -127,7 +126,7 @@
 		</div>
 		
 				<!-- begining of the tabs -->
-				<tabset class='col-lg-8 col-md-8'>
+				<tabset class='col-lg-12 col-md-12'>
 
 					<!-- demo tab - shows all of the information for the current lab -->
 					<tab heading='Figure'><br>
@@ -135,8 +134,9 @@
 							<div class='row'>								
 								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
 									<div id='table' style='width: 90px'>
-										<table id='variables' class='table table-bordered' ng-repeat='var in variables'>
-											<td>{{var.title}}</td><td>{{var.titletoo}}</td>
+										<table id='variables' class='table table-bordered' ng-repeat='mem in varmemory'>
+											<tr><tdcolspan='2' class='text-center'>Memory</td></tr>
+											<tr><td >{{mem.title}}</td><td>{{mem.value}}</td></tr>
 										</table>
 									</div>
 								</div>
@@ -193,33 +193,26 @@
 					<tab heading='Architecture'><br>
 						<div class='container'>
 							<div class='row'>
-								<div class='col-lg-4 col-md-4'>
-								
-									<!-- table containing the memory -->
-									<div id='table' style='overflow-y: scroll; border: 1px solid black; height: 300px; width: 200px'>
-									<table class='table table-bordered table-condensed' ng-repeat='mem in memory'>
+								<div class='col-lg-2 col-md-2 spanMem'>
+									<table class='table table-bordered' ng-repeat='mem in memory'>
 											<tr>
-											<td>{{mem.memno}}</td><td>{{mem.content}}</td>
+												<td>{{mem.memno}}</td><td>{{mem.content}}</td>
 											</tr>
 									</table>
-									</div>
 								</div>
 								
 								<!-- table containing the register information -->
-								<div class='col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1'>
-									<div class='spanReg'>
-										<table class='table table-bordered' ng-repeat='reg in register'>
-											<tbody>
-												<tr>
-													<td>{{reg.content}}</td>
-													<td>{{reg.value}}</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
+								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 spanReg'>
+									<table class='table table-bordered'  ng-repeat='reg in register'>
+										<tbody>
+											<tr>
+												<td>{{reg.content}}</td><td>{{reg.value}}</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 								<!-- program counter and instruction register table -->
-								<div class='col-lg-2 col-md-2'>
+								<div class='col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1'>
 									<table class='table table-bordered' style='height: 100px; width: 170px'>
 										<thead>
 											<tr>
@@ -271,7 +264,7 @@
 						</div>
 					</tab>
 				</tabset>
-				<hr />	
+				<br>	
 		</div>
 	</div>
 		
