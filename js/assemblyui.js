@@ -1308,6 +1308,7 @@
 				$scope.architecture();
 				if($scope.done == true){
 					$interval.cancel(intervalId);
+					$scope.reset();
 				};	
 				if($scope.done == false){
 					$scope.assembler.walk();
@@ -1321,7 +1322,7 @@
 			$scope.run = function(){
 				$scope.assembler.run();
 				$scope.architecture();
-				intervalId = $interval($scope.walk, 1000);
+				intervalId = $interval($scope.walk, 500);
 			};
 			
 
