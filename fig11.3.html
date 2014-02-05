@@ -204,7 +204,7 @@
 								<div class='col-lg-2 col-md-2 col-sm-2 col-xs-2 spanMem'>
 									<table class='table table-bordered' ng-repeat='mem in memory'>
 											<tr>
-												<td>{{mem.memno}}</td><td>{{mem.content}}</td>
+												<th>{{mem.memno}}</th><td>{{mem.con1}}</td><td>{{mem.con2}}</td><td>{{mem.con3}}</td><td>{{mem.con4}}</td>
 											</tr>
 									</table>
 								</div>
@@ -224,16 +224,16 @@
 									<table class='table table-bordered' style='height: 100px; width: 170px'>
 										<thead>
 											<tr>
-												<th class='text-center'>Program Counter</th>
+												<th class='text-center' colspan='4'>Program Counter</th>
 											</tr>
 											<tr>
-												<td class='text-center' ng-repeat='cnt in counter'>{{cnt.content}}</td>
+												<td class='text-center' colspan='4' ng-repeat='cnt in counter'>{{cnt.content}}</td>
 											</tr>
 											<tr>
-												<th class='text-center'>Instruction Register</th>
+												<th class='text-center' colspan='4'>Instruction Register</th>
 											</tr>
-											<tr>
-												<td class='text-center'>0000-0000-0000-0000</td>
+											<tr ng-repeat='inst in instructionRegister'>
+												<td>{{inst.con1}}</td><td>{{inst.con2}}</td><td>{{inst.con3}}</td><td>{{inst.con4}}</td>
 											</tr>
 										</thead>
 									</table> 									
