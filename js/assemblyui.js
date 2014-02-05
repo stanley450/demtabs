@@ -1153,7 +1153,6 @@
 			var tableName = "program";
 			var varTable = "variables";
 			var bool = false;
-			
 
 			$scope.assembler = new assembler(tableName, varTable, bool);
 			
@@ -1163,6 +1162,7 @@
 
 			$scope.architecture = function(){
 				
+<<<<<<< HEAD
 				var varmemcount = 0;
 				var regcount = 0;
 				var memcount = 0;
@@ -1195,6 +1195,22 @@
 				for(var i = 0; i < 256; i++){
 					$scope.addmemory();
 				}
+=======
+				var varMemory = $scope.assembler.varMemory;
+			
+				$scope.varMemory = [
+				                    {title: varMemory[0][0], value: varMemory[0][1]},
+				                    {title: varMemory[1][0], value: varMemory[1][1]},
+				                    {title: varMemory[2][0], value: varMemory[2][1]}
+				                    ];
+
+				var varRegister = $scope.assembler.varRegister;
+				$scope.varRegister = [
+			                 {title: varRegister[0][0], value: varRegister[0][1]},
+			                 {title: varRegister[1][0], value: varRegister[1][1]},
+			                 {title: varRegister[2][0], value: varRegister[2][1]}
+			                 ];
+>>>>>>> cfea94d1ecdf1d2883813da57958a7f78919af17
 				
 				var register = $scope.assembler.register;
 				$scope.register = [{content: register[0][0], value: register[0][1]},
@@ -1230,9 +1246,74 @@
 				var counter = $scope.assembler.returncounter();
 				$scope.counter = [{content:counter}];
 				
+<<<<<<< HEAD
 				$scope.instructionRegister = [{con1: $scope.assembler.memory[counter][0], con2: $scope.assembler.memory[counter][1], con3: $scope.assembler.memory[counter][2], con4: $scope.assembler.memory[counter][3]}];
 				
 				
+=======
+				var temp = $scope.assembler.memory;
+				var memory = new Array(256);
+				for(var i = 0; i < 256; i++) {
+					memory[i] = ["0","0","0","0"];
+				}
+				for(var i = 0; i < 256; i++) {
+					for(var j = 0; j < 4; j++){
+						if(typeof temp[i][j] == 'string' || temp[i][j] instanceof String){
+							memory[i][j] = temp[i][j];
+						} else {
+							memory[i][j] = $scope.assembler.decimalToHex(temp[i][j], 1);
+						}
+					}
+				}
+				$scope.instructionRegister = [{content:memory[counter]}];
+				$scope.memory = [{memno: 0, content: memory[0]},{memno: 1, content: memory[1]},{memno: 2, content: memory[2]},{memno: 3, content: memory[3]},
+				                 {memno: 4, content: memory[4]},{memno: 5, content: memory[5]},{memno: 6, content: memory[6]},{memno: 7, content: memory[7]},{memno: 8, content: memory[8]},{memno: 9, content: memory[9]},{memno: 10, content: memory[10]},
+									{memno: 11, content: memory[11]},{memno: 12, content: memory[12]},{memno: 13, content: memory[13]},{memno: 14, content: memory[14]},{memno: 15, content: memory[15]},{memno: 16, content: memory[16]},
+									{memno: 17, content: memory[17]},{memno: 18, content: memory[18]},{memno: 19, content: memory[19]},{memno: 20, content: memory[20]},{memno: 21, content: memory[21]},{memno: 22, content: memory[22]},{memno: 23, content: memory[23]},
+									{memno: 24, content: memory[24]},{memno: 25, content: memory[25]},{memno: 26, content: memory[26]},{memno: 27, content: memory[27]},{memno: 28, content: memory[28]},{memno: 29, content: memory[29]},
+									{memno: 30, content: memory[30]},{memno: 31, content: memory[31]},{memno: 32, content: memory[32]},{memno: 33, content: memory[33]},{memno: 34, content: memory[34]},{memno: 35, content: memory[35]},
+									{memno: 36, content: memory[36]},{memno: 37, content: memory[37]},{memno: 38, content: memory[38]},{memno: 39, content: memory[39]},{memno: 40, content: memory[40]},{memno: 41, content: memory[41]},
+									{memno: 42, content: memory[42]},{memno: 43, content: memory[43]},{memno: 44, content: memory[44]},{memno: 45, content: memory[45]},{memno: 46, content: memory[46]},{memno: 47, content: memory[47]},
+									{memno: 48, content: memory[48]},{memno: 49, content: memory[49]},{memno: 50, content: memory[50]},{memno: 51, content: memory[51]},{memno: 52, content: memory[52]},{memno: 53, content: memory[53]},
+									{memno: 54, content: memory[54]},{memno: 55, content: memory[55]},{memno: 56, content: memory[56]},{memno: 57, content: memory[57]},{memno: 58, content: memory[58]},{memno: 59, content: memory[59]},{memno: 60, content: memory[60]},
+									{memno: 61, content: memory[61]},{memno: 62, content: memory[62]},{memno: 63, content: memory[63]},{memno: 64, content: memory[64]},{memno: 65, content: memory[65]},{memno: 66, content: memory[66]},
+									{memno: 67, content: memory[67]},{memno: 68, content: memory[68]},{memno: 69, content: memory[69]},{memno: 70, content: memory[70]},{memno: 71, content: memory[71]},{memno: 72, content: memory[72]},
+									{memno: 73, content: memory[73]},{memno: 74, content: memory[74]},{memno: 75, content: memory[75]},{memno: 76, content: memory[76]},{memno: 77, content: memory[77]},{memno: 78, content: memory[78]},
+									{memno: 79, content: memory[79]},{memno: 80, content: memory[80]},{memno: 81, content: memory[81]},{memno: 82, content: memory[82]},{memno: 83, content: memory[83]},{memno: 84, content: memory[84]},
+									{memno: 85, content: memory[85]},{memno: 86, content: memory[86]},{memno: 87, content: memory[87]},{memno: 88, content: memory[88]},{memno: 89, content: memory[89]},{memno: 90, content: memory[90]},
+									{memno: 91, content: memory[91]},{memno: 92, content: memory[92]},{memno: 93, content: memory[93]},{memno: 94, content: memory[94]},{memno: 95, content: memory[95]},{memno: 96, content: memory[96]},
+									{memno: 97, content: memory[97]},{memno: 98, content: memory[98]},{memno: 99, content: memory[99]},{memno: 100, content: memory[100]},{memno: 101, content: memory[101]},{memno: 102, content: memory[102]},
+									{memno: 103, content: memory[103]},{memno: 104, content: memory[104]},{memno: 105, content: memory[105]},{memno: 106, content: memory[106]},{memno: 107, content: memory[107]},{memno: 108, content: memory[108]},
+									{memno: 109, content: memory[109]},{memno: 110, content: memory[110]},{memno: 111, content: memory[111]},{memno: 112, content: memory[112]},{memno: 113, content: memory[113]},{memno: 114, content: memory[114]},
+									{memno: 115, content: memory[115]},{memno: 116, content: memory[116]},{memno: 117, content: memory[117]},{memno: 118, content: memory[118]},{memno: 119, content: memory[119]},{memno: 120, content: memory[120]},
+									{memno: 121, content: memory[121]},{memno: 122, content: memory[122]},{memno: 123, content: memory[123]},{memno: 124, content: memory[124]},{memno: 125, content: memory[125]},{memno: 126, content: memory[126]},
+									{memno: 127, content: memory[127]},{memno: 0, content: memory[128]},{memno: 0, content: memory[129]},{memno: 0, content: memory[120]},{memno: 0, content: memory[121]},{memno: 0, content: memory[122]},
+									{memno: 0, content: memory[123]},{memno: 0, content: memory[124]},{memno: 0, content: memory[125]},{memno: 0, content: memory[126]},{memno: 0, content: memory[127]},{memno: 0, content: memory[128]},
+									{memno: 0, content: memory[129]},{memno: 0, content: memory[130]},{memno: 0, content: memory[131]},{memno: 0, content: memory[132]},{memno: 0, content: memory[133]},{memno: 0, content: memory[134]},
+									{memno: 0, content: memory[135]},{memno: 0, content: memory[136]},{memno: 0, content: memory[137]},{memno: 0, content: memory[138]},{memno: 0, content: memory[139]},{memno: 0, content: memory[140]},
+									{memno: 0, content: memory[141]},{memno: 0, content: memory[142]},{memno: 0, content: memory[143]},{memno: 0, content: memory[144]},{memno: 0, content: memory[145]},{memno: 0, content: memory[146]},
+									{memno: 0, content: memory[147]},{memno: 0, content: memory[148]},{memno: 0, content: memory[149]},{memno: 0, content: memory[150]},{memno: 0, content: memory[151]},{memno: 0, content: memory[152]},
+									{memno: 0, content: memory[153]},{memno: 0, content: memory[154]},{memno: 0, content: memory[155]},{memno: 0, content: memory[156]},{memno: 0, content: memory[157]},{memno: 0, content: memory[158]},
+									{memno: 0, content: memory[159]},{memno: 0, content: memory[160]},{memno: 0, content: memory[161]},{memno: 0, content: memory[162]},{memno: 0, content: memory[163]},{memno: 0, content: memory[164]},
+									{memno: 0, content: memory[165]},{memno: 0, content: memory[166]},{memno: 0, content: memory[167]},{memno: 0, content: memory[168]},{memno: 0, content: memory[169]},{memno: 0, content: memory[170]},
+									{memno: 0, content: memory[171]},{memno: 0, content: memory[172]},{memno: 0, content: memory[173]},{memno: 0, content: memory[174]},{memno: 0, content: memory[175]},{memno: 0, content: memory[176]},
+									{memno: 0, content: memory[177]},{memno: 0, content: memory[178]},{memno: 0, content: memory[179]},{memno: 0, content: memory[180]},{memno: 0, content: memory[181]},{memno: 0, content: memory[182]},
+									{memno: 0, content: memory[183]},{memno: 0, content: memory[184]},{memno: 0, content: memory[185]},{memno: 0, content: memory[186]},{memno: 0, content: memory[187]},{memno: 0, content: memory[188]},
+									{memno: 0, content: memory[189]},{memno: 0, content: memory[190]},{memno: 0, content: memory[191]},{memno: 0, content: memory[192]},{memno: 0, content: memory[193]},{memno: 0, content: memory[194]},
+									{memno: 0, content: memory[195]},{memno: 0, content: memory[196]},{memno: 0, content: memory[197]},{memno: 0, content: memory[198]},{memno: 0, content: memory[199]},{memno: 0, content: memory[200]},
+									{memno: 0, content: memory[201]},{memno: 0, content: memory[202]},{memno: 0, content: memory[203]},{memno: 0, content: memory[204]},{memno: 0, content: memory[205]},{memno: 0, content: memory[206]},
+									{memno: 0, content: memory[207]},{memno: 0, content: memory[208]},{memno: 0, content: memory[209]},{memno: 0, content: memory[210]},{memno: 0, content: memory[211]},{memno: 0, content: memory[212]},
+									{memno: 0, content: memory[213]},{memno: 0, content: memory[214]},{memno: 0, content: memory[215]},{memno: 0, content: memory[216]},{memno: 0, content: memory[217]},{memno: 0, content: memory[218]},
+									{memno: 0, content: memory[219]},{memno: 0, content: memory[220]},{memno: 0, content: memory[221]},{memno: 0, content: memory[222]},{memno: 0, content: memory[223]},{memno: 0, content: memory[224]},
+									{memno: 0, content: memory[225]},{memno: 0, content: memory[226]},{memno: 0, content: memory[227]},{memno: 0, content: memory[228]},{memno: 0, content: memory[229]},{memno: 0, content: memory[220]},
+									{memno: 0, content: memory[221]},{memno: 0, content: memory[222]},{memno: 0, content: memory[223]},{memno: 0, content: memory[224]},{memno: 0, content: memory[225]},{memno: 0, content: memory[226]},
+									{memno: 0, content: memory[227]},{memno: 0, content: memory[228]},{memno: 0, content: memory[229]},{memno: 0, content: memory[230]},{memno: 0, content: memory[231]},{memno: 0, content: memory[232]},
+									{memno: 0, content: memory[233]},{memno: 0, content: memory[234]},{memno: 0, content: memory[235]},{memno: 0, content: memory[236]},{memno: 0, content: memory[237]},{memno: 0, content: memory[238]},
+									{memno: 0, content: memory[239]},{memno: 0, content: memory[240]},{memno: 0, content: memory[241]},{memno: 0, content: memory[242]},{memno: 0, content: memory[243]},{memno: 0, content: memory[244]},
+									{memno: 0, content: memory[245]},{memno: 0, content: memory[246]},{memno: 0, content: memory[247]},{memno: 0, content: memory[248]},{memno: 0, content: memory[249]},{memno: 0, content: memory[250]},
+									{memno: 0, content: memory[251]},{memno: 0, content: memory[252]},{memno: 0, content: memory[253]},{memno: 0, content: memory[254]},{memno: 0, content: memory[255]}
+									];
+>>>>>>> cfea94d1ecdf1d2883813da57958a7f78919af17
 			};
 			
 			$scope.architecture();
