@@ -1156,8 +1156,11 @@
 
 			$scope.assembler = new assembler(tableName, varTable, bool);
 			
+			
+			
 			$scope.assembler.init();
 			
+			$scope.memory = [];
 			$scope.architecture = function(){
 				
 				var varMemory = $scope.assembler.varMemory;
@@ -1268,6 +1271,15 @@
 									{memno: 247, content: memory[247]},{memno: 248, content: memory[248]},{memno: 249, content: memory[249]},{memno: 250, content: memory[250]},{memno: 251, content: memory[251]},{memno: 252, content: memory[252]},
 									{memno: 253, content: memory[253]},{memno: 254, content: memory[244]},{memno: 255, content: memory[255]}
 									];
+				
+				$scope.set_color = function (num) {
+					  if (num == counter) {
+					    return { color: "red" };
+					  } else {
+						  return { color: "black" };
+					  }
+					};
+				
 			};
 			
 			
@@ -1290,6 +1302,8 @@
 			
 			$scope.walk = function(){
 				$scope.done = $scope.assembler.done;
+				var counter = $scope.assembler.returncounter();
+				//$scope.memory[counter].set_color(1);
 				if($scope.done == true){
 					$interval.cancel(intervalId);
 				};	
